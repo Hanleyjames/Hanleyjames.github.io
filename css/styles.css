@@ -20,6 +20,9 @@ header {
       background: url('../assets/seattlebg.png') no-repeat 50% 50%;
       background-size: cover;
 }
+ p {
+  font-family: 'Courier Prime', monospace;
+}
 
 
 .content {
@@ -84,6 +87,7 @@ nav ul li a {
       text-decoration: none;
       color: #fff;
       font-size: 20px;
+
 }
 
 .menu-icon {
@@ -105,6 +109,17 @@ nav ul li a {
   padding-top: 1em;
   padding-bottom: 1em;
   font-family: 'Courier Prime', monospace;
+}
+a:hover{
+  color:red;
+  text-decoration: none;
+}
+a:visited{
+  color:red;
+  text-decoration: none;
+}
+a:link {
+  color:red;
 }
 
 @media(max-width: 786px) {
