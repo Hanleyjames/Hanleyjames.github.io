@@ -27,7 +27,9 @@ nav{
  p {
   font-family: 'Courier Prime', monospace;
 }
-
+.about-text {
+  margin: 3em;
+}
 a:hover{
   color: grey;
 }
