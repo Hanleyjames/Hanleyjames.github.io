@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="http://localhost:4000/jasper2/tag/power-automate/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/jasper2/" rel="alternate" type="text/html" />
-  <updated>2023-12-30T22:50:11-07:00</updated>
-  <id>http://localhost:4000/jasper2/tag/power-automate/feed.xml</id>
+  <link href="http://localhost:4000/tag/power-automate/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2023-12-31T08:52:06-07:00</updated>
+  <id>http://localhost:4000/tag/power-automate/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">How Custom Connectors in Power Automate can be powerful</title>
-      <link href="http://localhost:4000/jasper2/welcome" rel="alternate" type="text/html" title="How Custom Connectors in Power Automate can be powerful" />
+      <link href="http://localhost:4000/welcome" rel="alternate" type="text/html" title="How Custom Connectors in Power Automate can be powerful" />
       <published>2023-12-30T03:00:00-07:00</published>
       <updated>2023-12-30T03:00:00-07:00</updated>
-      <id>http://localhost:4000/jasper2/welcome</id>
-      <content type="html" xml:base="http://localhost:4000/jasper2/welcome">&lt;h2 id=&quot;how-custom-connectors-in-power-automate-can-be-powerful&quot;&gt;How Custom Connectors in Power Automate can be powerful&lt;/h2&gt;</content>
+      <id>http://localhost:4000/welcome</id>
+      <content type="html" xml:base="http://localhost:4000/welcome">&lt;h2 id=&quot;how-custom-connectors-in-power-automate-can-be-powerful&quot;&gt;How Custom Connectors in Power Automate can be powerful&lt;/h2&gt;</content>
 
       
       
