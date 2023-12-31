@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/tag/power-automate/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2023-12-31T09:29:08-07:00</updated>
+  <updated>2023-12-31T10:40:10-07:00</updated>
   <id>http://localhost:4000/tag/power-automate/feed.xml</id>
 
   
@@ -32,12 +32,16 @@
 
   
     <entry>
-      <title type="html">How Custom Connectors in Power Automate can be powerful</title>
-      <link href="http://localhost:4000/welcome" rel="alternate" type="text/html" title="How Custom Connectors in Power Automate can be powerful" />
+      <title type="html">Interesting features of Power Automate Custom Connectors</title>
+      <link href="http://localhost:4000/welcome" rel="alternate" type="text/html" title="Interesting features of Power Automate Custom Connectors" />
       <published>2023-12-30T03:00:00-07:00</published>
       <updated>2023-12-30T03:00:00-07:00</updated>
       <id>http://localhost:4000/welcome</id>
-      <content type="html" xml:base="http://localhost:4000/welcome">&lt;h2 id=&quot;how-custom-connectors-in-power-automate-can-be-powerful&quot;&gt;How Custom Connectors in Power Automate can be powerful&lt;/h2&gt;</content>
+      <content type="html" xml:base="http://localhost:4000/welcome">&lt;h2 id=&quot;interesting-features-of-power-automate-custom-connectors&quot;&gt;Interesting features of Power Automate Custom Connectors&lt;/h2&gt;
+
+&lt;p&gt;During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp;amp; 18 digit SF UIDs to GUIDs. The other was how to do this with minimal modifications to an already existing api endpoint if possible. After a few discussions around having a Flow do heavy lifting and not wanting to work with Functions, I came to spend some time looking at taking advantage of a unique feature of Connectors.
+I had never been in a position to look into creating a Connector. To me they’re just something you use to retrieve data in a way that allows someone with minimal experience to apply filters and so on. It turns out that you can also just run C# code. I did not spot a lot of articles or information about this, and the few that did it seems to be a rare use. If for some reason you need to do a bit of heavy lifting and want to keep your work inside of Power Automate and your code is less than 1MB and runs in less than 5 seconds, then this is for you. If you would like to check out Microsoft’s documentation, you can follow &lt;a href=&quot;https://learn.microsoft.com/en-us/connectors/custom-connectors/write-code&quot;&gt;the link here&lt;/a&gt;.
+I am still going to cover the steps here in a future update.&lt;/p&gt;</content>
 
       
       
@@ -58,7 +62,7 @@
       
 
       
-        <summary type="html">How Custom Connectors in Power Automate can be powerful</summary>
+        <summary type="html">Interesting features of Power Automate Custom Connectors</summary>
       
 
       

@@ -11,7 +11,7 @@
 
 
 
-    <title>How Custom Connectors in Power Automate can be powerful</title>
+    <title>Interesting features of Power Automate Custom Connectors</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -42,9 +42,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Hanleyjames.github.io" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="How Custom Connectors in Power Automate can be powerful" />
-    <meta property="og:description" content="How Custom Connectors in Power Automate can be powerful
-" />
+    <meta property="og:title" content="Interesting features of Power Automate Custom Connectors" />
+    <meta property="og:description" content="Interesting features of Power Automate Custom Connectors During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp; 18 digit SF UIDs to GUIDs. The other was" />
     <meta property="og:url" content="http://localhost:4000/welcome" />
     <meta property="og:image" content="http://localhost:4000/assets/images/2025-01-01.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
@@ -53,9 +52,8 @@
     <meta property="article:modified_time" content="2023-12-30T03:00:00-07:00" />
     <meta property="article:tag" content="Power Automate" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="How Custom Connectors in Power Automate can be powerful" />
-    <meta name="twitter:description" content="How Custom Connectors in Power Automate can be powerful
-" />
+    <meta name="twitter:title" content="Interesting features of Power Automate Custom Connectors" />
+    <meta name="twitter:description" content="Interesting features of Power Automate Custom Connectors During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp; 18 digit SF UIDs to GUIDs. The other was" />
     <meta name="twitter:url" content="http://localhost:4000/" />
     <meta name="twitter:image" content="http://localhost:4000/assets/images/2025-01-01.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -87,8 +85,7 @@
         "@type": "WebPage",
         "@id": "http://localhost:4000/welcome"
     },
-    "description": "How Custom Connectors in Power Automate can be powerful
-"
+    "description": "Interesting features of Power Automate Custom Connectors During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp; 18 digit SF UIDs to GUIDs. The other was"
 }
     </script>
 
@@ -101,7 +98,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="How Custom Connectors in Power Automate can be powerful" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Interesting features of Power Automate Custom Connectors" href="/feed.xml" />
 
 
 </head>
@@ -164,7 +161,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">How Custom Connectors in Power Automate can be powerful</h1>
+                <h1 class="post-full-title">Interesting features of Power Automate Custom Connectors</h1>
             </header>
 
             
@@ -174,7 +171,11 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h2 id="how-custom-connectors-in-power-automate-can-be-powerful">How Custom Connectors in Power Automate can be powerful</h2>
+                    <h2 id="interesting-features-of-power-automate-custom-connectors">Interesting features of Power Automate Custom Connectors</h2>
+
+<p>During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp; 18 digit SF UIDs to GUIDs. The other was how to do this with minimal modifications to an already existing api endpoint if possible. After a few discussions around having a Flow do heavy lifting and not wanting to work with Functions, I came to spend some time looking at taking advantage of a unique feature of Connectors.
+I had never been in a position to look into creating a Connector. To me they’re just something you use to retrieve data in a way that allows someone with minimal experience to apply filters and so on. It turns out that you can also just run C# code. I did not spot a lot of articles or information about this, and the few that did it seems to be a rare use. If for some reason you need to do a bit of heavy lifting and want to keep your work inside of Power Automate and your code is less than 1MB and runs in less than 5 seconds, then this is for you. If you would like to check out Microsoft’s documentation, you can follow <a href="https://learn.microsoft.com/en-us/connectors/custom-connectors/write-code">the link here</a>.
+I am still going to cover the steps here in a future update.</p>
 
                 </div>
             </section>
@@ -248,13 +249,13 @@ into the {body} of the default.hbs template -->
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">How Custom Connectors in Power Automate can be powerful</div>
+    <div class="floating-header-title">Interesting features of Power Automate Custom Connectors</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How+Custom+Connectors+in+Power+Automate+can+be+powerful&amp;url=https://jekyllt.github.io/jasper2/welcome"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Interesting+features+of+Power+Automate+Custom+Connectors&amp;url=https://jekyllt.github.io/jasper2/welcome"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
