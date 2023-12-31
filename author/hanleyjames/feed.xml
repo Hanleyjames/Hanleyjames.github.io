@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/author/hanleyjames/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2023-12-31T10:53:16-07:00</updated>
+  <updated>2023-12-31T12:54:28-07:00</updated>
   <id>http://localhost:4000/author/hanleyjames/feed.xml</id>
 
   
@@ -30,6 +30,41 @@
   
   
 
+  
+    <entry>
+      <title type="html">New Years and Re-reading Nietzsche</title>
+      <link href="http://localhost:4000/new-years-nietzsche" rel="alternate" type="text/html" title="New Years and Re-reading Nietzsche" />
+      <published>2023-12-30T04:00:00-07:00</published>
+      <updated>2023-12-30T04:00:00-07:00</updated>
+      <id>http://localhost:4000/new-years-nietzsche</id>
+      <content type="html" xml:base="http://localhost:4000/new-years-nietzsche">&lt;p&gt;Happy New Years everyone,
+I wanted to lay out a general goal for me and re-read through some of the Kaufmann translations of Nietzsche. I had seen some newer distaste for Nietzsche arise and realize it has been close to a decade since I read his works. I am going to start with Thus Spoke and read through the others in chronological order. I would like to afterwords spend some time reading and exploring newer academic critiques of his works. I feel like a lot has changed in 10 years, including peoples attitudes towards Nietzsche.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>James Hanley</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Nietzsche" />
+      
+
+      
+        <summary type="html">Happy New Years everyone, I wanted to lay out a general goal for me and re-read through some of the Kaufmann translations of Nietzsche. I had seen some newer distaste for Nietzsche arise and realize it has been close to a decade since I read his works. I am going to start with Thus Spoke and read through the others in chronological order. I would like to afterwords spend some time reading and exploring newer academic critiques of his works. I feel like a lot has changed in 10 years, including peoples attitudes towards Nietzsche.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Interesting features of Power Automate Custom Connectors</title>
