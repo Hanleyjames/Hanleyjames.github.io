@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="http://localhost:4000/author/hanleyjames/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/tag/js/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
   <updated>2024-05-05T11:42:11-06:00</updated>
-  <id>http://localhost:4000/author/hanleyjames/feed.xml</id>
+  <id>http://localhost:4000/tag/js/feed.xml</id>
 
   
   
@@ -112,79 +112,6 @@
 
       
         <summary type="html">I have been spending my free time recently learning how Javascript malware works, and what are some common methods for infection. While this might be something others know or have touched upon, for me this is all new. My knowledge of JS Malware in recent memory really only dealt with cryptomining. Some of the things that I am coming to learn is the majority will focus on windows machines. Primarily (I don’t have enough experience to say this with confidence), they use Windows Script Host/WSH to do the majority of the work. Either from there they use WSH or ActiveXObjects to write files. I am not really sure which ones are examples of those that effect unix based systems that are not either hijacked node packages, or</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">New Years and Re-reading Nietzsche</title>
-      <link href="http://localhost:4000/new-years-nietzsche" rel="alternate" type="text/html" title="New Years and Re-reading Nietzsche" />
-      <published>2023-12-30T04:00:00-07:00</published>
-      <updated>2023-12-30T04:00:00-07:00</updated>
-      <id>http://localhost:4000/new-years-nietzsche</id>
-      <content type="html" xml:base="http://localhost:4000/new-years-nietzsche">&lt;p&gt;Happy New Years everyone,
-I wanted to lay out a general goal for me and re-read through some of the Kaufmann translations of Nietzsche. I had seen some newer distaste for Nietzsche arise and realize it has been close to a decade since I read his works. I am going to start with Thus Spoke and read through the others in chronological order. I would like to afterwords spend some time reading and exploring newer academic critiques of his works. I feel like a lot has changed in 10 years, including peoples attitudes towards Nietzsche.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>James Hanley</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Nietzsche" />
-      
-
-      
-        <summary type="html">Happy New Years everyone, I wanted to lay out a general goal for me and re-read through some of the Kaufmann translations of Nietzsche. I had seen some newer distaste for Nietzsche arise and realize it has been close to a decade since I read his works. I am going to start with Thus Spoke and read through the others in chronological order. I would like to afterwords spend some time reading and exploring newer academic critiques of his works. I feel like a lot has changed in 10 years, including peoples attitudes towards Nietzsche.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Interesting features of Power Automate Custom Connectors</title>
-      <link href="http://localhost:4000/welcome" rel="alternate" type="text/html" title="Interesting features of Power Automate Custom Connectors" />
-      <published>2023-12-30T03:00:00-07:00</published>
-      <updated>2023-12-30T03:00:00-07:00</updated>
-      <id>http://localhost:4000/welcome</id>
-      <content type="html" xml:base="http://localhost:4000/welcome">&lt;h2 id=&quot;interesting-features-of-power-automate-custom-connectors&quot;&gt;Interesting features of Power Automate Custom Connectors&lt;/h2&gt;
-
-&lt;p&gt;During the process of migrating Cloud Flows from Dynamics to Salesforce I ran into an issue with data transformation that caused me to look at as many approaches possible. One was transforming 15 &amp;amp; 18 digit SF UIDs to GUIDs. The other was how to do this with minimal modifications to an already existing api endpoint if possible. After a few discussions around having a Flow do heavy lifting and not wanting to work with Functions, I came to spend some time looking at taking advantage of a unique feature of Connectors.
-I had never been in a position to look into creating a Connector. To me they’re just something you use to retrieve data in a way that allows someone with minimal experience to apply filters and so on. It turns out that you can also just run C# code. I did not spot a lot of articles or information about this, and the few that did it seems to be a rare use. If for some reason you need to do a bit of heavy lifting and want to keep your work inside of Power Automate and your code is less than 1MB and runs in less than 5 seconds, then this is for you. If you would like to check out Microsoft’s documentation, you can follow &lt;a href=&quot;https://learn.microsoft.com/en-us/connectors/custom-connectors/write-code&quot;&gt;the link here&lt;/a&gt;.
-I am still going to cover the steps here in a future update.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>James Hanley</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Power Automate" />
-      
-
-      
-        <summary type="html">Interesting features of Power Automate Custom Connectors</summary>
       
 
       
