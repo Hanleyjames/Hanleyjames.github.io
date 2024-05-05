@@ -25,14 +25,15 @@
       <item>
         <title>JS Malware Obsfucation</title>
         
-          <description>&lt;p&gt;I have been spending my free time recently learning how Javascript malware works, and what are some common methods for infection. While this might be something others know or have touched upon, for me this is all new. My knowledge of JS Malware in recent memory really only dealt with cryptomining. Some of the things that I am coming to learn is the majority will focus on windows machines. Primarily (I don’t have enough experience to say this with confidence), they use &lt;a href=&quot;https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc738350(v=ws.10)&quot;&gt;Windows Script Host/WSH&lt;/a&gt; to do the majority of the work. Either from there they use WSH or &lt;a href=&quot;https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/activex-objects&quot;&gt;ActiveXObjects&lt;/a&gt; to write files. I am not really sure which ones are examples of those that effect unix based systems that are not either hijacked node packages, or&lt;/p&gt;
+          <description>&lt;h2 id=&quot;obfuscation&quot;&gt;Obfuscation&lt;/h2&gt;
+&lt;p&gt;An integral part of malware development or at least trying to figure it out centers around a practice called &lt;a href=&quot;https://en.wikipedia.org/wiki/Obfuscation_(software)&quot;&gt;Obfuscation&lt;/a&gt;. Obfuscation is &lt;a href=&quot;https://en.wiktionary.org/wiki/obfuscation#English&quot;&gt;‘[t]he alteration of computer code to preserve its behavior while concealing its structure and intent’.&lt;/a&gt;. Deobfuscation is the process of turning unreadable, or comically obscure code into something readable. To me, the practice of doing it in Javascript is interesting because it seems like the last language you would want to use if you’re developing malware. Out of this line of thinking, I wanted to spend time exploring how JS malware operates and how people use JS to infect machines.&lt;/p&gt;
 
 </description>
         
         <pubDate>Sat, 04 May 2024 05:00:00 -0600</pubDate>
         <link>
-        http://localhost:4000/js-malware-Obsfucation</link>
-        <guid isPermaLink="true">http://localhost:4000/js-malware-Obsfucation</guid>
+        http://localhost:4000/js-malware-obsfucation</link>
+        <guid isPermaLink="true">http://localhost:4000/js-malware-obsfucation</guid>
       </item>
       
     
