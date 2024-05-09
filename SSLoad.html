@@ -43,7 +43,7 @@
     <meta property="og:site_name" content="Hanleyjames.github.io" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="SSLoad" />
-    <meta property="og:description" content="MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c About SSLoad is a recent family of malware which was originally created in rust. It gets its name from its early C2 using “a first-stage DLL that connected to a Telegram channel named ‘SSLoad’ to retrieve another URL. It then downloaded a compressed PE file using a hardcoded" />
+    <meta property="og:description" content="MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c Analysis of SSLoad JS Malware SSLoad emerges as a recent addition to the malware landscape, originating from a Rust-based architecture. Its nomenclature is derived from its early Command and Control (C2) infrastructure, which utilized a first-stage DLL connecting to a Telegram channel named ‘SSLoad’ to retrieve additional URLs." />
     <meta property="og:url" content="http://localhost:4000/SSLoad" />
     <meta property="og:image" content="http://localhost:4000/assets/images/24-5-4-SSLoad.JPG" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
@@ -53,7 +53,7 @@
     <meta property="article:tag" content="Malware" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SSLoad" />
-    <meta name="twitter:description" content="MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c About SSLoad is a recent family of malware which was originally created in rust. It gets its name from its early C2 using “a first-stage DLL that connected to a Telegram channel named ‘SSLoad’ to retrieve another URL. It then downloaded a compressed PE file using a hardcoded" />
+    <meta name="twitter:description" content="MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c Analysis of SSLoad JS Malware SSLoad emerges as a recent addition to the malware landscape, originating from a Rust-based architecture. Its nomenclature is derived from its early Command and Control (C2) infrastructure, which utilized a first-stage DLL connecting to a Telegram channel named ‘SSLoad’ to retrieve additional URLs." />
     <meta name="twitter:url" content="http://localhost:4000/" />
     <meta name="twitter:image" content="http://localhost:4000/assets/images/24-5-4-SSLoad.JPG" />
     <meta name="twitter:label1" content="Written by" />
@@ -85,7 +85,7 @@
         "@type": "WebPage",
         "@id": "http://localhost:4000/SSLoad"
     },
-    "description": "MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c About SSLoad is a recent family of malware which was originally created in rust. It gets its name from its early C2 using “a first-stage DLL that connected to a Telegram channel named ‘SSLoad’ to retrieve another URL. It then downloaded a compressed PE file using a hardcoded"
+    "description": "MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c Analysis of SSLoad JS Malware SSLoad emerges as a recent addition to the malware landscape, originating from a Rust-based architecture. Its nomenclature is derived from its early Command and Control (C2) infrastructure, which utilized a first-stage DLL connecting to a Telegram channel named ‘SSLoad’ to retrieve additional URLs."
 }
     </script>
 
@@ -177,40 +177,36 @@ into the {body} of the default.hbs template -->
                 <div class="kg-card-markdown">
                     <p>MalwareBazzar: 092962bc268390debf17cd148d03147cd919e42e61c92de01eac3bdb34b1c</p>
 
-<h1 id="about">About</h1>
+<h2 id="analysis-of-ssload-js-malware">Analysis of SSLoad JS Malware</h2>
 
-<p>SSLoad is a recent family of malware which was originally created in rust. It gets its name from  its early C2 using <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.ssload">“a first-stage DLL that connected to a Telegram channel named ‘SSLoad’ to retrieve another URL. It then downloaded a compressed PE file using a hardcoded User-Agent (SSLoad/1.x) and Content-Type over HTTP”</a>. If you want to read more about its broader campaing, I would also suggest checking out the article by <a href="https://www.securonix.com/blog/securonix-threat-research-security-advisory-frozenshadow-attack-campaign/">Den Iyzvyk, Oleg Kolesnikov &amp; Tim Peck</a> over the broader FROZEN#SHADOW campaign. Today I am more interested in checking out both what Den, Oleg and Tim cover, the javascript aspect of this.</p>
+<p>SSLoad emerges as a recent addition to the malware landscape, originating from a Rust-based architecture. <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.ssload">Its nomenclature is derived from its early Command and Control (C2) infrastructure, which utilized a first-stage DLL connecting to a Telegram channel named ‘SSLoad’ to retrieve additional URLs. Upon retrieval, a compressed PE file is downloaded via HTTP, employing a hardcoded User-Agent (SSLoad/1.x) and Content-Type </a>. For a broader understanding of its operational scope, an examination of the FROZEN#SHADOW campaign, as discussed by <a href="https://www.securonix.com/blog/securonix-threat-research-security-advisory-frozenshadow-attack-campaign/">Den Iyzvyk, Oleg Kolesnikov, and Tim Peck, is recommended</a>.</p>
 
-<h1 id="comment-hell">Comment Hell</h1>
+<h3 id="commentary-on-code-structure">Commentary on Code Structure</h3>
 
-<p>I opened this file and was taken back. I originally started looking at the code comment bloat. 
-<img src="assets/images/24-5-4-SSLoad.JPG" alt="SSLoad" title="SSLoad" />
-The first pattern I observed was for every 19 lines of commented out randomly generated words, the author either had a space or eight forwardslashes with no space after. 1177 lines later they hit our first variable declaration that calls a function. My first approach to this was just deleting every “// {word}” line. The hidden code that just relied on backticks was clear to as the point of focus. My reason being is I noticed this line “var network = new ActiveXObject…”. It did not take long to clear throught them pretty quick. This reduced the lines of code from 2k to 410. There was nothing really obscure about variable naming or anything else, so the only thing pereventing someone from understanding it was fatigue or ignorance.</p>
+<p><img src="assets/images/24-5-4-SSLoad.JPG" alt="SSLoad" title="SSLoad" />
+Upon reviewing the code associated with SSLoad, a significant amount of it is comment-heavy sections. The code exhibits a pattern for every 19 lines follows are a space or eight forward slashes devoid of spacing. This pattern extends across 1177 lines until encountering the first variable declaration invoking a function. Initial efforts involved the systematic removal of lines prefixed with “// {word}”. My approach to spotting this patern came through the instantiation of “var network = new ActiveXObject…”, which stood out beyond the wall of comments. This culling process reduced the codebase from 2,000 to 410 lines, with no notable obfuscation in variable naming or other elements. This malware only works through obsfucation by reader fatigue or gulability.</p>
 
-<h1 id="initial-infection">Initial Infection</h1>
+<h3 id="initial-penetration-analysis">Initial Penetration Analysis</h3>
 
-<h3 id="the-harmless-part">The harmless part</h3>
+<h4 id="unveiling-the-facade">Unveiling the Facade</h4>
 
-<p>Let’s get into it, so they have two sections of code. One is commented out, and the other is up front.
-The non-commented code is as follows:
-<img src="assets/images/24-05-06-SSLoader.JPG" alt="SSLoad" title="SSLoad" />
-First they declare a variable as a function. They create an ActiveXObject for FileSystemObjects and get our scripts own name. They also create an empty string that stores content later. There’s 3 functions that are declared.</p>
+<p><img src="assets/images/24-05-06-SSLoader.JPG" alt="SSLoad" title="SSLoad" />
+Two distinct sections of code emerge after culling the file: one delineated by active code and the other inundated with commented-out segments. The active code segment entails variable declaration, including function instantiation, ActiveXObject for FileSystemObjects, retrieval of script identity, and the creation of an empty content string. Three functions are defined:</p>
 <ol>
-  <li>Function “e” checks for its own existence. It then opens itself and gets every line that has multiple forwardslashes in it. They store that in variable “d” and close the file stream.</li>
-  <li>Function “h” splits the commented out code and runs the code as a function. This gets past the other popular use of an eval statement to call code.</li>
-  <li>Function “j” is returned, which calls function “e” and “h” in a try catch block with silent error handling.
-The code ends calling “j” and parsing the js file itself.</li>
+  <li>Function “e” verifies its existence, accesses itself, and retrieves lines containing multiple forward slashes, storing them in variable “d” before closing the file stream.</li>
+  <li>Function “h” dissects commented-out code and executes it as a function, circumventing the conventional employment of an eval statement.</li>
+  <li>Function “j” orchestrates the invocation of functions “e” and “h” within a try-catch block, facilitating silent error handling. The execution culminates in invoking “j” and parsing the JavaScript file itself.</li>
 </ol>
 
-<h3 id="the-other-side-of-the-coin">The other side of the coin</h3>
+<h4 id="delving-deeper">Delving Deeper</h4>
 
 <p><img src="assets/images/24-05-06-SSLoader1.JPG" alt="SSLoad" title="SSLoad" />
 <img src="assets/images/24-05-06-SSLoader2.JPG" alt="SSLoad" title="SSLoad" />
-The code names are a lot cleaner than a,b,c in this section. There’s an ActiveXObject for connecting to the network, and some variables to store information about connection status, attemps and drive letters for the network. Next we check if the drive is mapped with a function. From there we have a for loop that starts at the letter “z” and decrements until it is able to connect to ${letter}:\krd6 . com@80\share. We then connect to the drive using winmgmt. Last, if we’re connected to the drive we use msiexec to install the avp.msi file off of the drive quietly. We then then try to disconnect the network drive and the 2nd stage payload happens.</p>
+The subsequent code sections exhibit improved naming conventions compared to the prior segment. Notable features encompass an ActiveXObject for network connectivity, alongside variables tracking connection status, attempts, and drive letters pertinent to the network. A function assesses mapped drive status, followed by a for loop iterating from the letter “z” downwards, attempting to establish connectivity to “${letter}:\krd6.com@80\share". Subsequent steps involve drive connection via winmgmt and unobtrusive installation of the “avp.msi” file using msiexec upon successful network drive connection. A final phase entails attempted disconnection of the network drive, precipitating the initiation of the second-stage payload.</p>
 
-<h1 id="closing-thoughts">Closing Thoughts</h1>
+<h3 id="concluding-remarks">Concluding Remarks</h3>
 
-<p>This one was pretty funny. It was pretty quick to figure out what was going on, and dodged eval statements to essentially do the same thing. That being how do we get this to run the more important part of the the program. It was unique in that sense, as I have yet to see a sample do this in a meaningful way. The code comments themselves were more of a pain, but it made it easy to write a script that just pulled code between every 19 lines that did not start with // SIG //. From that perspective, this was a relatively quick one. All of the more malicious and permanent files are pulled off of the krd6 server in Russia. If you want more technical details about the file and what drops afterwords, check out: <a href="https://www.joesandbox.com/analysis/1427450/1/html">Joe Sandbox ID: 1427450</a></p>
+<p>The analysis of SSLoad reveals a cacophony of Code comments both relavant and not. Notably, the evasion of eval statements in favor of alternate execution pathways underscores a strategic departure from conventional malware approaches. Despite the encumbrance posed by copious code comments, the deciphering process was streamlined through systematic pruning. Furthermore, the file ends with an extraction of malicious payloads from the krd6 server in Russia. For further technical insight into subsequent payload behavior, reference to <a href="https://www.joesandbox.com/analysis/1427450/1/html">Joe Sandbox ID: 1427450</a> is recommended.</p>
 
                 </div>
             </section>
